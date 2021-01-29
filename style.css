@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Potta One', cursive;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #353434;
+}  
+body{
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+}
+.home-box, .game-box{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    max-width: none;
+    max-height: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0 auto;
+    padding: 100px;
+}
+.winner-box, .gameover-box, .instructions-box{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    margin: 10% auto;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+    background: #ffffff;
+    border: 5px solid black;
+}
+.instructions-box{
+    overflow-y: scroll;
+}
+.game-box{
+    padding-top: 20px;
+}
+.home-box h1{
+    margin: 0px 60px;
+    font-size: 80px;
+    font-weight: bolder;
+}
+.home-box p, .instructions-box p{
+    margin: 10px;
+    font-size: 35px;
+    font-style: oblique;
+}
+/* blinking text on the Start page*/
+.blink-text{
+    margin-top: 2vh;
+    font-size: 40px;
+    padding-bottom: 10px;
+    animation: blink 1s infinite;
+}
+@keyframes blink{
+    0%   {opacity: 1;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;} 
+}
+.btn, .start-btn, .btn-change, .btn-input{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-indent: 0px;
+    width: 250px;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+    margin: 10px auto;
+    letter-spacing: 1px;
+    background: rgb(77, 77, 77);
+    color: #f5f5f5;
+    border: 3px solid #000000;
+    transition: .1s ease-in;
+}
+.start-btn{
+    width: 400px;
+}
+.btn-change, .btn-input{
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+}
+.btn-change{
+    background: rgb(202, 0, 0);
+}
+.btn:hover, .start-btn:hover, .btn-input:hover{
+    background: rgb(109, 109, 109);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.btn-change:hover{
+    background: rgb(255, 58, 58);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.form-input{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    background: #f5f5f5;
+    color: rgb(77, 77, 77);
+    border: 3px solid #000000;
+    text-transform: lowercase;
+}
+.start-btns{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.score-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+.title-box h1{
+    font-size: 20px;
+}
+#hint{
+    font-size: 30px;
+}
+#letter-space{
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+.guess-attempt-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.guess-box h2{
+    font-size: 30px;
+}
+.attempt-box h2{
+    font-size: 25px;
+}
+.attempt-box .skull{
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+    background-image: url("images/skull.png");
+    background-size: 64px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.graySkull{
+    filter: grayscale(100%) brightness(120%);
+    -webkit-filter: grayscale(100%) brightness(120%);
+    opacity: .2;
+}
+#hangman-container{
+    display: flex;
+    position: absolute;
+    height: 304px;
+    width: 240px;
+}
+.hangman{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 304px;
+    width: 240px;
+}
+.hangman:nth-child(1){
+    background: url("images/hangman1.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.hangman:nth-child(2){
+    background: url("images/hangman2.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.hangman:nth-child(3){
+    background: url("images/hangman3.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.hangman:nth-child(4){
+    background: url("images/hangman4.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.hangman:nth-child(5){
+    background: url("images/hangman5.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.winner-box h1, .gameover-box h1, .instructions-box h1{
+    font-size: 50px;
+    word-spacing: 5px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.winner-box h2, .gameover-box h2{
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+.hide{
+    display: none;
+}
+
+@media (max-width: 1270px){
+    .home-box, .game-box{
+        padding: 10vh;
+    }
+    .home-box h1{
+        margin: 0px 10vh;
+        font-size: 7vh;
+    }
+}
+@media (max-width: 1024px){
+    .home-box, .game-box{
+        overflow-x: hidden;
+        overflow-y: hidden;
+        padding: 50px;
+    }
+    .home-box h1{
+        font-size: 5vh;
+    }
+    .home-box p{
+        margin: 0;
+        font-size: 3vh;
+        margin: 0 5vw;
+    }
+    .blink-text{
+        margin-top: 2vh;
+        font-size: 3vh;
+    }
+    .btn, .start-btn, .btn-change, .btn-input{
+        width: 25vh;
+        height: 7vw;
+        font-size: 3vh;
+        padding-top: 10px;
+    }
+    .start-btn{
+        width: 40vh;
+    }
+    .btn:hover, .start-btn:hover, .btn-change:hover, .btn-input:hover{
+        transform: none;
+        cursor: auto;
+    }
+    .form-input{
+        width: 30vh;
+        height: auto;
+        font-size: 5vh;
+    }
+    .title-box h1{
+        font-size: 3vh;
+    }
+    #hint{
+        font-size: 3vh;
+    }
+    #letter-space{
+        font-size: 5vh;
+    }
+    .guess-box h2{
+        font-size: 3vh;
+    }
+    .attempt-box h2{
+        font-size: 3vh;
+    }
+    .attempt-box .skull{
+        height: 6vh;
+        width: 6vh;
+        background-size: 6vh;
+    }
+    #hangman-container{
+        padding-top: 5vh;
+        height: 30vh;
+        width: 20vh;
+    }
+    .hangman{
+        height: 30vh;
+        width: 20vh;
+    }
+    .winner-box h1, .gameover-box h1{
+        font-size: 5vh;
+    }
+    .winner-box h2, .gameover-box h2{
+        font-size: 3vh;
+    }
+}
+
+@media (max-width: 768px){
+    .btn, .start-btn, .btn-change, .btn-input{
+        height: 6vw;
+        font-size: 15px;
+        margin: 3px auto;
+        padding-top: 3px;
+    }
+    .start-btn{
+        width: 30vh;
+    }
+    .btn-change, .btn-input{
+        padding-top: 0;
+    }
+    .home-box h1{
+        font-size: 4vh;
+    }
+    .home-box p, .instructions-box p{
+        margin: 5px;
+        font-size: 3vh;
+    }
+    .guess-attempt-box{
+        justify-content: space-evenly;
+    }
+    .winner-box h1, .gameover-box h1, .instructions-box h1{
+        font-size: 4vh;
+        word-spacing: 0;
+        padding-bottom: 5px;
+    }
+    .winner-box h2, .gameover-box h2{
+        padding-bottom: 5px;
+    }
+    .score-btns{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 10px;
+    }
+}
+@media (max-width: 480px){
+    .home-box, .game-box{
+        padding: 5vh;
+        width: auto;
+    }
+    .btn, .start-btn, .btn-change, .btn-input{
+        width: 20vh;
+        height: 8vw;
+        font-size: 10px;
+    }
+    .start-btn{
+        width: 30vh;
+    }
+    .blink-text, .game-box h1{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 10px;
+    }
+    .home-box h1{
+        font-size: 25px;
+    }
+    .home-box p, .instructions-box p{
+        font-size: 15px;
+    }
+    .form-input{
+        width: 20vh;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .attempt-box .skull{
+        height: 20px;
+        width: 20px;
+        background-size: 20px;
+    }
+    .attempt-box h2, .guess-box h2{
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+    #hint{
+        font-size: 15px;
+    }
+    #letter-space{
+        font-size: 18px;
+    }
+    #hangman-container{
+        padding-top: 10px;
+        height: 25vh;
+        width: 20vh;
+    }
+    .hangman{
+        height: 25vh;
+        width: 20vh;
+    }
+    .winner-box, .gameover-box, .instructions-box {
+        padding: 3px;
+    }
+    .winner-box h1, .gameover-box h1, .instructions-box h1{
+        font-size: 20px;
+    }
+    .winner-box h2, .gameover-box h2{
+        font-size: 15px;
+    }
+    .score-btns{
+        padding-top: 5px;
+    }
+}
+@media (max-width: 320px){
+    .btn, .btn-change, .btn-input{
+        width: 12vh;
+        padding-top: 0;
+    }
+    .start-btn{
+        width: 25vh;
+    }
+    .blink-text, .game-box h1{
+        font-size: 10px;
+    }
+    .home-box h1{
+        font-size: 25px;
+    }
+    .home-box p, .instructions-box p{
+        font-size: 10px;
+    }
+    .form-input{
+        width: 12vh;
+        font-size: 15px;
+    }
+    .attempt-box .skull{
+        height: 15px;
+        width: 15px;
+        background-size: 15px;
+    }
+    .attempt-box h2, .guess-box h2{
+        font-size: 10px;
+    }
+    #hint{
+        font-size: 15px;
+    }
+    #letter-space{
+        font-size: 15px;
+        padding-bottom: 20px;
+    }
+    #hangman-container{
+        padding-top: 10px;
+        height: 25vh;
+        width: 20vh;
+    }
+    .hangman{
+        height: 25vh;
+        width: 20vh;
+    }
+    .winner-box h1, .gameover-box h1, .instructions-box h1{
+        font-size: 15px;
+    }
+    .winner-box h2, .gameover-box h2{
+        font-size: 10px;
+    }
+    .score-btns{
+        padding-top: 5px;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hangman - try not to DIE laughing! Guess the correct word and become the Hangman master!">
+    <meta name="keywords" content="Hangman, game, words, fun, entertaining">
+    <meta name="author" content="@Anna-portfolio">
+    <title>Hangman | Try not to DIE laughing!</title>
+    <link rel="icon" href="images/skull-icon.png" sizes="16x16">
+    <link rel="stylesheet" href="style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <div class="home-box">
+        <div>
+            <h1> Welcome to Hangman!</h1>
+            <p>Are you ready?</p>
+            <h2 class ="blink-text">Press INSTRUCTIONS for info, START to start</h2>
+        </div>
+        <div class="start-btns">
+            <button class="start-btn" onclick="showInstructions()">INSTRUCTIONS</button>
+            <button class="start-btn" onclick="startGame()">START!</button>
+        </div>
+    </div>
+    <div class="game-box hide">
+        <div class="title-box">
+            <h1> It's a Hangman!</h1>
+        </div>
+        <div class="question-box">
+            <div id="hint"><h1></h1></div>
+            <div id="letter-space"></div>
+        </div>
+        <div class="guess-attempt-box">
+            <div class="guess-box">
+                <div id="user-guess"><h2>Your guess: </h2></div>
+                <form name="form" id="form" onsubmit="submitAnswer(); return false">
+                    <input type="text" class="form-input" name="text" autocomplete="off" size="3" maxlength="1">
+                    <input type="button" class="btn-input" value="SUBMIT" onclick="submitAnswer()">
+                    <input type="button" class="btn-change" value="change ⭯" onclick="tryAgain()">
+                </form>
+            </div>
+            <div class="attempt-box">
+                <div id="attempts"><h2>Life: </h2>
+                    <div id="skull-container">
+                        <div class="skull"></div>
+                        <div class="skull"></div>
+                        <div class="skull"></div>
+                        <div class="skull"></div>
+                        <div class="skull"></div>
+                    </div>
+                </div>
+                <div id="hangman-container">
+                    <div class="hangman hide"></div>
+                    <div class="hangman hide"></div>
+                    <div class="hangman hide"></div>
+                    <div class="hangman hide"></div>
+                    <div class="hangman hide"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="winner-box hide">
+        <h1>Congratulations! You've made it!</h1>
+        <h2 id="hangman-winner-answer"></h2>
+        <div class="score-btns">
+            <button class="btn" onclick = "tryAgain()">Again</button>
+            <button class="btn" onclick = "goHome()">Home</button>
+        </div>
+    </div>
+    <div class="gameover-box hide">
+        <h1>Game over! Better luck next time!</h1>
+        <h2 id="hangman-gameover-answer"></h2>
+        <div class="score-btns">
+            <button class="btn" onclick = "tryAgain()">Again</button>
+            <button class="btn" onclick = "goHome()">Home</button>
+        </div>
+    </div>
+    <div class="instructions-box hide">
+        <h1>Instructions</h1><br>
+        <p>Guess the correct word! You have 5 health points - you lose your points if you type in an incorrect letter. If you lose all the points, the game is over. But don't worry! Every word comes with a hint displayed at the top of the page, and even so, if the answer still too difficult to guess, you can always draw another one by pressing the "change" button!<br><br><em><u>Important:</u></em> The answers contain only letters - if you type any other character, you lose your health point as well!<br><br>GOOD LUCK!</p><br><br>
+        <div>
+            <button class="btn" onclick = "closeInstructions()">Exit</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
