@@ -1,5 +1,5 @@
 # Hangman
-A word-guessing game using HTML, CSS, and pure JavaScript
+A word-guessing game using HTML, CSS, and JavaScript (no library)
 
 ![hangman-img](https://user-images.githubusercontent.com/75646880/109957624-81162800-7ce5-11eb-9a83-65134433a695.png)
 
